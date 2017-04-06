@@ -7,6 +7,10 @@
 <?php
 $Act=$_POST['Act']; 
 if($Act!='') DeleteRecord();//删除目标记录
+if($Act!='') 
+{
+	DeleteRecord("Popupwindow",$_POST['DelRowID']);//删除目标记录
+}
 $rowid= trim($_GET['rowid']);
 $CurPage= trim($_GET['CurPage']);
 if(strlen($rowid)==0) $Flag= trim($_POST['rowid']);
@@ -86,13 +90,13 @@ if(strlen($rowid)!=32)//说明是参数错误
 		$stopDate=$row['stopDate'];
 		$outTime= date('Y-m-d',strtotime($outTime));
 		if(strlen($stopDate)>0) $stopDate= date('Y-m-d',strtotime($stopDate));
-    	echo '<tr><td align="center">'.$XH.'</td><td><A href="EditPopup.php?PopupRowID='.$PopupRowID.'&rowid='.$RowID.'">'.$Title.'</a></td><td width="65">'.$outTime.'</td><td width="65">'.$stopDate.'</td><td align="center"><input type="checkbox" name="Id" value="'.$ID.'"></td></tr>';
+    	echo '<tr><td align="center">'.$XH.'</td><td><A href="EditPopup.php?PopupRowID='.$PopupRowID.'&rowid='.$RowID.'">'.$Title.'</a></td><td width="65">'.$outTime.'</td><td width="65">'.$stopDate.'</td><td align="center"><input type="checkbox" name="Id" value="'.$RowID.'"></td></tr>';
 	}
 	mysql_free_result($rs);
 
 	?>
 	</tbody></table></td></tr>
-    <tr><td colspan="4" height="40"><div align="right"><input name="add" type="button" style="BACKGROUND-IMAGE: url(/adm/images/add.gif)" class="ManageButton" alt="增加" onClick="javascript:AddPopRecord('<?php echo $PopupRowID?>')" onMouseOver="javascript:changebtn(this);" onMouseOut="javascript:changebtn(this);">&nbsp;&nbsp;<input name="del" type="button" style="BACKGROUND-IMAGE: url(/adm/images/del.gif)" class="ManageButton" alt="删除" onClick="javascript:DelRecord(1);" onMouseOver="javascript:changebtn(this);" onMouseOut="javascript:changebtn(this);"><input name="Act" type="hidden"><input name="DelID" type="hidden">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td></tr>
+    <tr><td colspan="4" height="40"><div align="right"><input name="add" type="button" style="BACKGROUND-IMAGE: url(/adm/images/add.gif)" class="ManageButton" alt="增加" onClick="javascript:AddPopRecord('<?php echo $PopupRowID?>')" onMouseOver="javascript:changebtn(this);" onMouseOut="javascript:changebtn(this);">&nbsp;&nbsp;<input name="del" type="button" style="BACKGROUND-IMAGE: url(/adm/images/del.gif)" class="ManageButton" alt="删除" onClick="javascript:DelRecord(1);" onMouseOver="javascript:changebtn(this);" onMouseOut="javascript:changebtn(this);"><input name="Act" type="hidden"><input name="DelRowID" type="hidden">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td></tr>
 <?php
 	if($pages>1)
 	{
@@ -111,23 +115,3 @@ if(strlen($rowid)!=32)//说明是参数错误
 </tbody></table>
 <?php }?>
 
-
-
-
-
-
-
-<?php 
-function DeleteRecord()//删除目标记录
-{
-	$arr = explode(',',$_POST['DelID']);
-  	foreach($arr as $ID)
-	{
-    	//echo 'Arr='.$ID;
-		$SqlStr="Delete from Popupwindow where ID='".$ID."'";
-		$rs = mysql_query($SqlStr);
-	}
-	
-
-}              
-?>

@@ -7,12 +7,16 @@
 <?php
 $Act=$_POST['Act']; 
 if($Act!='') DeleteRecord();//删除目标记录
+if($Act!='') 
+{
+	DeleteRecord("Friendlinks",$_POST['DelRowID']);//删除目标记录
+}
+
 $rowid= trim($_GET['rowid']);
 $CurPage= trim($_GET['CurPage']);
 if(strlen($rowid)==0) $Flag= trim($_POST['rowid']);
 if(strlen($CurPage)==0) $CurPage= trim($_POST['CurPage']);
 if($CurPage=='') $CurPage=1;
-
 if(strlen($rowid)!=32)//说明是参数错误
 {
 	exit("<script>alert('参数错误！');history.back(-1);</script>");
@@ -84,13 +88,13 @@ if(strlen($rowid)!=32)//说明是参数错误
 		$LinkName=$row['LinkName'];
 		$Link=$row['Link'];
 		$LinkPic=$row['LinkPic'];
-    	echo '<tr><td align="center">'.$XH.'</td><td><A href="EditFrdLnk.php?rowid='.$RowID.'">'.$LinkName.'</a></td><td>'.$Link.'</td><td align="center"><A href="'.$Link.'" target="_blank">查看链接</a></td><td align="center"><input type="checkbox" name="Id" value="'.$ID.'"></td></tr>';
+    	echo '<tr><td align="center">'.$XH.'</td><td><A href="EditFrdLnk.php?rowid='.$RowID.'">'.$LinkName.'&nbsp;</a></td><td>'.$Link.'</td><td align="center"><A href="'.$Link.'" target="_blank">查看链接</a></td><td align="center"><input type="checkbox" name="Id" value="'.$RowID.'"></td></tr>';
 	}
 	mysql_free_result($rs);
 
 	?>
 	</tbody></table></td></tr>
-    <tr><td colspan="3" height="40"><div align="right"><input name="add" type="button" style="BACKGROUND-IMAGE: url(/adm/images/add.gif)" class="ManageButton" alt="增加" onClick="javascript:AddRecord('<?php echo "EditFrdLnk.php?flag=".$Flag?>');" onMouseOver="javascript:changebtn(this);" onMouseOut="javascript:changebtn(this);">&nbsp;&nbsp;<input name="del" type="button" style="BACKGROUND-IMAGE: url(/adm/images/del.gif)" class="ManageButton" alt="删除" onClick="javascript:DelRecord(1);" onMouseOver="javascript:changebtn(this);" onMouseOut="javascript:changebtn(this);"><input name="Act" type="hidden"><input name="DelID" type="hidden">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td></tr>
+    <tr><td colspan="3" height="40"><div align="right"><input name="add" type="button" style="BACKGROUND-IMAGE: url(/adm/images/add.gif)" class="ManageButton" alt="增加" onClick="javascript:AddRecord('<?php echo "EditFrdLnk.php?flag=".$Flag?>');" onMouseOver="javascript:changebtn(this);" onMouseOut="javascript:changebtn(this);">&nbsp;&nbsp;<input name="del" type="button" style="BACKGROUND-IMAGE: url(/adm/images/del.gif)" class="ManageButton" alt="删除" onClick="javascript:DelRecord(1);" onMouseOver="javascript:changebtn(this);" onMouseOut="javascript:changebtn(this);"><input name="Act" type="hidden"><input name="DelRowID" type="hidden">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td></tr>
 <?php
 	if($pages>1)
 	{
@@ -113,18 +117,3 @@ if(strlen($rowid)!=32)//说明是参数错误
 
 
 
-
-
-<?php 
-function DeleteRecord()//删除目标记录
-{
-	$arr = explode(',',$_POST['DelID']);
-  	foreach($arr as $ID)
-	{
-		$SqlStr="Delete from Friendlinks where ID='".$ID."'";
-		$rs = mysql_query($SqlStr);
-	}
-	
-
-}              
-?>
