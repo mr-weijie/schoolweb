@@ -1,0 +1,195 @@
+BODY {
+	TEXT-ALIGN: center
+}
+TD.leftBG {
+	BACKGROUND: url(images/bodyBg_Left.gif) #ffffff repeat-y left 50%
+}
+TD.rightBG {
+	BACKGROUND: url(images/bodyBg_Right.gif) #ffffff repeat-y right 50%
+}
+TD {
+	FONT-FAMILY: "宋体"; COLOR: #000000; FONT-SIZE: 9pt
+}
+LoginText {
+	BORDER-BOTTOM: black 1pt solid; BORDER-LEFT: black 1pt solid; BACKGROUND-COLOR: #f0f8ff; WIDTH: 40px; FONT-FAMILY: 宋体; COLOR: black; FONT-SIZE: 9pt; BORDER-TOP: black 1pt solid; BORDER-RIGHT: black 1pt solid
+}
+.LoginButton {
+	PADDING-BOTTOM: 0px; BORDER-RIGHT-WIDTH: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; PADDING-TOP: 0px
+}
+.ManageList {
+	
+}
+.ManageList TABLE {
+	BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; BACKGROUND-COLOR: #d2e8ff; BORDER-TOP: medium none; BORDER-RIGHT: medium none
+}
+.ManageList TH {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #66ccff; FONT-FAMILY: 宋体; COLOR: black; FONT-SIZE: 11pt
+}
+.ManageList TD {
+	BACKGROUND-COLOR: #99ccff; FONT-FAMILY: 宋体; COLOR: black; FONT-SIZE: 9pt
+}
+.text {
+	WIDTH: 300px; FONT-FAMILY: "宋体"; FONT-SIZE: 9pt
+}
+.ManageList TD#caption {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #99ccff; FONT-FAMILY: "宋体"; COLOR: black; FONT-SIZE: 9pt
+}
+.ManageList TD#button {
+	TEXT-ALIGN: center; BACKGROUND-COLOR: #99ccff; FONT-FAMILY: "宋体"; HEIGHT: 30px; COLOR: black; FONT-SIZE: 9pt
+}
+.ManageButton {
+	PADDING-BOTTOM: 0px; BORDER-RIGHT-WIDTH: 0px; PADDING-LEFT: 0px; WIDTH: 43px; PADDING-RIGHT: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; PADDING-TOP: 0px
+}
+.ManageButtonH {
+	PADDING-BOTTOM: 0px; BORDER-RIGHT-WIDTH: 0px; PADDING-LEFT: 0px; WIDTH: 18px; PADDING-RIGHT: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; HEIGHT: 43px; BORDER-LEFT-WIDTH: 0px; PADDING-TOP: 0px
+}
+.ManageButtonExt {
+	PADDING-BOTTOM: 0px; BORDER-RIGHT-WIDTH: 0px; PADDING-LEFT: 0px; WIDTH: 68px; PADDING-RIGHT: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; HEIGHT: 20px; BORDER-LEFT-WIDTH: 0px; PADDING-TOP: 0px
+}
+.ManagePage {
+	FONT-FAMILY: "宋体"; COLOR: #209558; FONT-SIZE: 9pt
+}
+.ManagePage A:visited {
+	COLOR: #209558; TEXT-DECORATION: none
+}
+.ManagePage A:active {
+	COLOR: #209558; TEXT-DECORATION: none
+}
+.ManagePage A:link {
+	COLOR: #209558; TEXT-DECORATION: none
+}
+.ManagePage A:hover {
+	COLOR: #209558; TEXT-DECORATION: none
+}
+.ManagePage TD {
+	FONT-FAMILY: "宋体"; COLOR: #209558; FONT-SIZE: 9pt
+}
+A:link {
+	FONT-FAMILY: "宋体"; COLOR: #000000; TEXT-DECORATION: none
+}
+A:visited {
+	FONT-FAMILY: "宋体"; COLOR: #000000; TEXT-DECORATION: none
+}
+A:active {
+	FONT-FAMILY: "宋体"; COLOR: #ff0000; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #000000; TEXT-DECORATION: underline
+}
+.indicator {
+	HEIGHT: 21px; COLOR: dodgerblue; FONT-SIZE: 10pt
+}
+.indicator .left {
+	WIDTH: 4px; BACKGROUND: url(images/indicator_left.gif) no-repeat
+}
+.indicator .center {
+	BACKGROUND: url(images/indicator_center.gif) repeat-x
+}
+.indicator .right {
+	WIDTH: 4px; BACKGROUND: url(images/indicator_right.gif) no-repeat
+}
+.show {
+	LINE-HEIGHT: 24px; FONT-FAMILY: "宋体"; FONT-SIZE: 11pt
+}
+.HeadShow {
+	LINE-HEIGHT: 20px; FONT-FAMILY: "宋体"; FONT-SIZE: 11pt
+}
+.searchbox {
+	BORDER-BOTTOM: #d6d3ce 1px solid; BORDER-LEFT: #424142 1px solid; WIDTH: 90px; HEIGHT: 16px; FONT-SIZE: 9pt; BORDER-TOP: #424142 1px solid; BORDER-RIGHT: #d6d3ce 1px solid
+}
+.linkbox {
+	BORDER-BOTTOM: #d6d3ce 1px solid; BORDER-LEFT: #424142 1px solid; WIDTH: 120px; HEIGHT: 16px; FONT-SIZE: 9pt; BORDER-TOP: #424142 1px solid; BORDER-RIGHT: #d6d3ce 1px solid
+}
+.LOGIN {
+	PADDING-BOTTOM: 0px; BORDER-RIGHT-WIDTH: 0px; PADDING-LEFT: 0px; WIDTH: 37px; PADDING-RIGHT: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; PADDING-TOP: 0px
+}
+.ChildFunction {
+	FONT-FAMILY: "宋体"; COLOR: #000000; FONT-SIZE: 9pt
+}
+.ChildFunction A:visited {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+.ChildFunction A:active {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+.ChildFunction A:link {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+.ChildFunction A:hover {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+.TuiJianSeparator {
+	WIDTH: 5px; BACKGROUND: url(images/RecommendDot.gif) #ffffff repeat-y 0px 0px
+}
+.btnOut {
+	BACKGROUND-IMAGE: url(images/buttonModel_Out.jpg); BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; WIDTH: 68px; HEIGHT: 20px; BORDER-TOP: 0px; BORDER-RIGHT: 0px
+}
+.btnOut SPAN {
+	POSITION: relative; TOP: 1px
+}
+.btnMove {
+	BACKGROUND-IMAGE: url(images/buttonModel_Move.jpg); BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; WIDTH: 68px; HEIGHT: 20px; BORDER-TOP: 0px; BORDER-RIGHT: 0px
+}
+.btnMove SPAN {
+	POSITION: relative; TOP: 1px
+}
+.LoginBtn1 {
+	BACKGROUND-IMAGE: url(images/loginBtn1.gif); BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; WIDTH: 55px; HEIGHT: 25px; BORDER-TOP: 0px; BORDER-RIGHT: 0px
+}
+.LoginBtn1 SPAN {
+	FILTER: dropshadow(color=#ffffff,offx=1,offy=1); WIDTH: 100%; HEIGHT: 100%; COLOR: #c32a00; FONT-SIZE: 10pt; CURSOR: hand
+}
+.SearchBtn1 {
+	BACKGROUND-IMAGE: url(images/SearchBtn1.gif); BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; WIDTH: 47px; HEIGHT: 18px; BORDER-TOP: 0px; BORDER-RIGHT: 0px
+}
+.SearchBtn1 SPAN {
+	PADDING-LEFT: 2px; WIDTH: 100%; HEIGHT: 100%; COLOR: #ffffff; FONT-SIZE: 9pt; CURSOR: hand
+}
+.TPLThirteenTop1 {
+	FILTER: dropshadow(color=#ffffff,offx=1,offy=1); PADDING-LEFT: 28px; WIDTH: 100px; FONT-FAMILY: 宋体; LETTER-SPACING: 1px; COLOR: #0183db; FONT-SIZE: 10pt; CURSOR: default; FONT-WEIGHT: bolder; PADDING-TOP: 9px
+}
+.TPLThirteenTop2 {
+	TEXT-ALIGN: right; PADDING-RIGHT: 3px; FONT-FAMILY: 宋体; COLOR: #0183d9; FONT-SIZE: 9pt; PADDING-TOP: 12px
+}
+.TPLThirteenTop2 A:link {
+	COLOR: #0183d9
+}
+.TPLThirteenTop2 A:visited {
+	COLOR: #666
+}
+.TPLThirteenTop2 A:hover {
+	COLOR: #f38421
+}
+.TPLThirteenContent TD {
+	PADDING-TOP: 5px
+}
+.TPLFourteenTop1 {
+	PADDING-LEFT: 14px; WIDTH: 100px; FONT-FAMILY: 宋体; LETTER-SPACING: 1px; COLOR: #ffffff; FONT-SIZE: 10pt; CURSOR: default; FONT-WEIGHT: bolder; PADDING-TOP: 6px
+}
+.TPLFourteenTop2 {
+	TEXT-ALIGN: right; PADDING-RIGHT: 10px; COLOR: #ffffff; FONT-SIZE: 10pt; PADDING-TOP: 18px
+}
+.TPLFourteenTop2 A {
+	FONT-FAMILY: Arial !important; COLOR: #ffffff !important; FONT-WEIGHT: bolder
+}
+.TPLFourteenTop2 A:hover {
+	COLOR: #f38401 !important; TEXT-DECORATION: none
+}
+.TPLFourteenTime TD {
+	FONT-FAMILY: 宋体; COLOR: #d03700; FONT-SIZE: 9pt
+}
+.TPLFourteenTime SPAN {
+	COLOR: #ff0000; FONT-SIZE: 7pt
+}
+.TPLFourteenContent TD {
+	FONT-FAMILY: 宋体; FONT-SIZE: 9pt
+}
+.XinXiChaXun1 {
+	PADDING-LEFT: 39px; WIDTH: 100%; BACKGROUND: url(images/XinXiChaXunItemBG1.gif) #ffffff no-repeat 0px 0px; HEIGHT: 35px; PADDING-TOP: 8px
+}
+.XinXiChaXun1 A {
+	FONT-FAMILY: 宋体; COLOR: #0092e8 !important; FONT-SIZE: 10pt; FONT-WEIGHT: bolder
+}
+.XinXiChaXun1 A:hover {
+	COLOR: #f38401 !important
+}

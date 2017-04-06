@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0045)http://jxzxx.org.cn/ws2004/model/repopwin.asp -->
+<HTML><HEAD><TITLE>Ê×Ò³µ¯³ö´°¿Ú</TITLE>
+<SCRIPT language=javascript src="repopwin_files/std.js"></SCRIPT>
+
+<SCRIPT language=javascript>
+<!--
+function PopWin(Id,WindowSize,WindowTop,WindowLeft,IsCloseAuto,TimeDelay)
+{
+	
+	try
+	{
+		WindowTop = parseInt(WindowTop);
+		WindowLeft = parseInt(WindowLeft);
+		var Size = parseInt(WindowSize);
+		var Width,Height;
+		switch(Size)
+		{
+			case 1:
+				Width = 300;
+				Height = 300;
+				break;
+			case 2:
+				Width = 600;
+				Height = 600;
+				break;
+			case 3:
+				Width = window.screen.availWidth;
+				Height = window.screen.availHeight-80;
+				break;
+			case 4:
+				Width = window.screen.availWidth;
+				Height = window.screen.availHeight;
+				break;
+			default:
+				Width = 300;
+				Height = 300;
+		}
+		var popallid = GetCookie("popallid");
+		var S_OK = true;
+		if (popallid == null || popallid == 'undefined' || popallid == "")
+			popallid = Id;
+		else
+		{
+			pop = popallid.split(",")
+			for (var i=0;i<pop.length;i++)
+			{
+				if (pop[i] == Id.toString(10))
+					break;
+			}
+			if (i>=pop.length)
+				popallid += "," + Id;
+			else
+				S_OK = false;
+		}	
+		if (S_OK)
+		{
+			var url = "/ws2004/PopWin/show.asp?Id=" + Id + "&IsCloseAuto=" + IsCloseAuto + "&TimeDelay=" + TimeDelay;
+			window.open (url,"","location=no,menubar=no,scrollbars=no,resizable=yes,toolbar=no,width="+Width+",height="+Height+",top="+WindowTop+",left="+WindowLeft);
+		}
+		SetCookie("popallid",popallid);
+	}
+	catch(e)
+	{;}
+}
+//-->
+</SCRIPT>
+
+<META content="text/html; charset=gb2312" http-equiv=Content-Type>
+<META name=GENERATOR content="MSHTML 8.00.7601.19038"></HEAD>
+<BODY bgColor=#ffffff text=#000000>
+<SCRIPT language=javascript>
+<!--
+
+//-->
+</SCRIPT>
+</BODY></HTML>
