@@ -30,7 +30,7 @@ if($Act==1)
 	if(strlen($rowid)==0)
 	{
 		$rowid=strtoupper(md5($Title.$content.$Flag.date("Y-m-d H:i:s")));//最后转换成大写
-		$SqlStr="Insert Into tblcontent(RowID,Flag,Auditing,Title,Recommend,Author,OutTime,Content) Values('".$rowid."','".$Flag."','0','".$Title."','0','Admin',Now(),'".$content."')";
+		$SqlStr="Insert Into tblcontent(RowID,Flag,Auditing,Title,Recommend,Author,OutTime,Content) Values('".$rowid."','".$Flag."','0','".$Title."','0','".$_SESSION['Admin']."',Now(),'".$content."')";
 	}else
 	{
 		$SqlStr="Update tblcontent Set Title='".$Title."',Content='".$content."',outTime=Now() Where RowID='".$rowid."'";
