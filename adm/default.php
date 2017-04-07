@@ -21,7 +21,7 @@
     <td height="100%">
 	<table width="100%" border="0" cellspacing="0" cellpadding="0" align="center" height="100%">
 	  <tbody><tr>
-	    <td width="155" valign="top" height="100%" background="./images/ManageFunListBackGround.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td height="31" background="./images/ManageFunListTop.gif" align="center"><font color="darkred">admin 您好！</font></td></tr>
+	    <td width="155" valign="top" height="100%" background="./images/ManageFunListBackGround.gif"><table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td height="31" background="./images/ManageFunListTop.gif" align="center"><font color="darkred"><?php echo $_SESSION['Admin']?> 您好！</font></td></tr>
     <?php 
 		$SqlStr="SELECT Flag,FunctionName,FunctionDir,FunctionFileName from managefunction Where Root='0' order by SortId ";
 		$rs = mysql_query($SqlStr);

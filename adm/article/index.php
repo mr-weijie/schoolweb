@@ -23,7 +23,7 @@
           <td width="155" valign="top" height="100%" background="../images/ManageFunListBackGround.gif">
           <table width="100%" border="0" cellspacing="0" cellpadding="0">
           	<tbody>
-            	<tr><td height="31" background="../images/ManageFunListTop.gif" align="center"><font color="darkred">admin 您好！</font></td></tr>
+            	<tr><td height="31" background="../images/ManageFunListTop.gif" align="center"><font color="darkred"><?php echo $_SESSION['Admin']?> 您好！</font></td></tr>
                     <?php 
 		$flag=$_GET['flag'];
 		$SqlStr="SELECT RowID,FunctionName,FunctionDir,FunctionFileName from managefunction Where Root='".$flag."' order by SortId ";

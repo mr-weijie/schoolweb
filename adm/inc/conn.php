@@ -1,4 +1,9 @@
 ﻿<?php
+session_start();
+if(strlen($_SESSION['Admin'])==0)
+{
+	//exit('<script>alert("身份验证超时，请重新登录！");location.href="/login.php";</script>');
+}
 ini_set('max_execution_time', 100);//最长超时等待时间为100秒
 $host='localhost';
 $user='root';
