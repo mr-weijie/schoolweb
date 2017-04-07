@@ -6,7 +6,10 @@
 <body bgcolor="#FFFFFF" text="#000000" leftmargin="0" topmargin="0">
 <?php
 $Act=$_POST['Act']; 
-if($Act!='') DeleteRecord();//删除目标记录
+if($Act!='') 
+{
+	DeleteRecord("tblcontent",$_POST['DelRowID']);//删除目标记录
+}
 $rowid= trim($_GET['rowid']);
 $CurPage= trim($_GET['CurPage']);
 if(strlen($rowid)==0) $Flag= trim($_POST['rowid']);
@@ -85,13 +88,13 @@ if(strlen($rowid)!=32)//说明是参数错误
 		$Title=$row['Title'];
 		$OutTime=$row['OutTime'];
 		$OutTime= date('Y-m-d',strtotime($OutTime));
-    	echo '<tr><td align="center">'.$XH.'</td><td><A href="EditArticle.php?rowid='.$RowID.'&ArticleRowID='.$rowid.'">'.$Title.'</a></td><td width="65">'.$OutTime.'</td><td align="center"><input type="checkbox" name="Id" value="'.$ID.'"></td></tr>';
+    	echo '<tr><td align="center">'.$XH.'</td><td><A href="EditArticle.php?rowid='.$RowID.'&ArticleRowID='.$rowid.'">'.$Title.'</a></td><td width="65">'.$OutTime.'</td><td align="center"><input type="checkbox" name="Id" value="'.$RowID.'"></td></tr>';
 	}
 	mysql_free_result($rs);
 
 	?>
 	</tbody></table></td></tr>
-    <tr><td colspan="3" height="40"><div align="right"><input name="add" type="button" style="BACKGROUND-IMAGE: url(/adm/images/add.gif)" class="ManageButton" alt="增加" onClick="javascript:AddRecord('<?php echo "EditArticle.php?flag=".$Flag."&ArticleRowID=".$rowid?>');" onMouseOver="javascript:changebtn(this);" onMouseOut="javascript:changebtn(this);">&nbsp;&nbsp;<input name="del" type="button" style="BACKGROUND-IMAGE: url(/adm/images/del.gif)" class="ManageButton" alt="删除" onClick="javascript:DelRecord(1);" onMouseOver="javascript:changebtn(this);" onMouseOut="javascript:changebtn(this);"><input name="Act" type="hidden"><input name="DelID" type="hidden">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td></tr>
+    <tr><td colspan="3" height="40"><div align="right"><input name="add" type="button" style="BACKGROUND-IMAGE: url(/adm/images/add.gif)" class="ManageButton" alt="增加" onClick="javascript:AddRecord('<?php echo "EditArticle.php?flag=".$Flag."&ArticleRowID=".$rowid?>');" onMouseOver="javascript:changebtn(this);" onMouseOut="javascript:changebtn(this);">&nbsp;&nbsp;<input name="del" type="button" style="BACKGROUND-IMAGE: url(/adm/images/del.gif)" class="ManageButton" alt="删除" onClick="javascript:DelRecord(1);" onMouseOver="javascript:changebtn(this);" onMouseOut="javascript:changebtn(this);"><input name="Act" type="hidden"><input name="DelRowID" type="hidden">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div></td></tr>
 <?php
 	if($pages>1)
 	{
@@ -109,23 +112,3 @@ if(strlen($rowid)!=32)//说明是参数错误
 ?></form>
 </tbody></table>
 <?php }?>
-
-
-
-
-
-
-
-<?php 
-function DeleteRecord()//删除目标记录
-{
-	$arr = explode(',',$_POST['DelID']);
-  	foreach($arr as $ID)
-	{
-		$SqlStr="Delete from tblcontent where ID='".$ID."'";
-		$rs = mysql_query($SqlStr);
-	}
-	
-
-}              
-?>
