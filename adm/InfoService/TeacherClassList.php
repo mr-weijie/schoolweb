@@ -85,7 +85,7 @@ if(strlen($rowid)!=32)//说明是参数错误
 		$RowID=$row['RowID'];
 		$TeacherName=$row['TeacherName'];
 		$TermName=$row['TermName'];
-    	echo '<tr><td align="center">'.$XH.'</td><td><A href="EditTeacherClass.php?rowid='.$RowID.'&flagrowid='.$rowid.'">'.$TermName.'&nbsp;</a></td><td width="200">'.$TeacherName.'</td><td align="center"><input type="checkbox" name="Id" value="'.$RowID.'"></td></tr>';
+    	echo '<tr><td align="center">'.$XH.'</td><td><A href="EditTeacherClass.php?rowid='.$RowID.'&flagrowid='.$rowid.'&CurPage='.$CurPage.'">'.$TermName.'&nbsp;</a></td><td width="200">'.$TeacherName.'</td><td align="center"><input type="checkbox" name="Id" value="'.$RowID.'"></td></tr>';
 	}
 	mysql_free_result($rs);
 

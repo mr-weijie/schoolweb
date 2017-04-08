@@ -20,6 +20,9 @@
 $Act=$_POST['Act'];
 $FlagRowID=$_GET['flagrowid'];
 $Flag=$_GET['flag'];
+$CurPage=$_GET['CurPage'];
+if($CurPage=='') $CurPage=$_POST['CurPage'];
+if($CurPage=='') $CurPage=1;
 if(strlen($FlagRowID)==0)	$FlagRowID=$_POST['flagrowid'];
 if($Act==1)
 {
@@ -42,7 +45,7 @@ if($Act==1)
 	$rs=mysql_query($SqlStr);
 	if($rs)//操作成功
 	{
-		$retstr="<script>alert('记录提交成功!');window.location.href='ScoreList.php?rowid=".$FlagRowID."'</script>";
+		$retstr="<script>alert('记录提交成功!');window.location.href='ScoreList.php?rowid=".$FlagRowID."&CurPage=".$CurPage."'</script>";
 	}else//操作失败
 	{
 		$retstr="<script>alert('记录提交失败!');history.back(-1);</script>";
@@ -139,7 +142,8 @@ if(strlen($Flag)>0)
 	        <input type="hidden" name="content" id="content">
 	        <input type="hidden" name="Act" id="Act" value="1">
 			<input type="hidden" name="flagrowid" value="<?php echo $Flagrowid?>" />
-	        <input type="hidden" name="ArticleRowID" value="<?php echo $ArticleRowID?>">
+	        <input type="hidden" name="CurPage" value="<?php echo $CurPage?>" />
+            <input type="hidden" name="ArticleRowID" value="<?php echo $ArticleRowID?>">
  			<input type="hidden" name="NotNullFeild" value="Flag,ClassName,TermName,TestType,Title,Content">
             <input type="hidden" name="NotNullDesc" value="标识字段,班级名称,学期名称,考试类型,成绩表名称,成绩内容" > 			
             <input type="hidden" name="EregPattern" value="d,C,C,C,C"></td></tr>

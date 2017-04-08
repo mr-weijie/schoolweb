@@ -20,6 +20,9 @@
 $Act=$_POST['Act'];
 $ArticleRowID=$_GET['ArticleRowID'];
 $Flag=$_GET['flag'];
+$CurPage=$_GET['CurPage'];
+if($CurPage=='') $CurPage=$_POST['CurPage'];
+if($CurPage=='') $CurPage=1;
 if(strlen($ArticleRowID)==0)	$ArticleRowID=$_POST['ArticleRowID'];
 if($Act==1)
 {
@@ -38,7 +41,7 @@ if($Act==1)
 	$rs=mysql_query($SqlStr);
 	if($rs)//操作成功
 	{
-		$retstr="<script>alert('记录提交成功!');window.location.href='ArticleList.php?rowid=".$ArticleRowID."'</script>";
+		$retstr="<script>alert('记录提交成功!');window.location.href='ArticleList.php?rowid=".$ArticleRowID."&CurPage=".$CurPage."'</script>";
 	}else//操作失败
 	{
 		$retstr="<script>alert('记录提交失败!');history.back(-1);</script>";
@@ -76,6 +79,7 @@ if(strlen($rowid)==32)
 	        <input type="hidden" name="rowid" value="<?php echo $rowid?>">
 	        <input type="hidden" name="content" id="content">
 	        <input type="hidden" name="Act" id="Act" value="1">
+			<input type="hidden" name="CurPage" value="<?php echo $CurPage?>" />
 	        <input type="hidden" name="ArticleRowID" value="<?php echo $ArticleRowID?>">
  			<input type="hidden" name="NotNullFeild" value="Flag,Title,Content">
             <input type="hidden" name="NotNullDesc" value="标识字段,文章标题,文章内容" > 			

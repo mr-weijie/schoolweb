@@ -10,6 +10,9 @@
 <body>
 <?php
 $Act=$_POST['Act']; 
+$CurPage=$_GET['CurPage'];
+if($CurPage=='') $CurPage=$_POST['CurPage'];
+if($CurPage=='') $CurPage=1;
 if(strlen($Act)>0)//说明是保存操作
 {
 	$Flagrowid=$_POST['Flagrowid'];
@@ -27,7 +30,7 @@ if(strlen($Act)>0)//说明是保存操作
 	$rs=mysql_query($SqlStr);
 	if($rs)//操作成功
 	{
-		$retstr="<script>alert('记录提交成功!');window.location.href='TermList.php?rowid=".$Flagrowid."'; </script>";
+		$retstr="<script>alert('记录提交成功!');window.location.href='TermList.php?rowid=".$Flagrowid."&CurPage=".$CurPage."'; </script>";
 	}else//操作失败
 	{
 		$retstr="<script>alert('记录提交失败!');history.back(-1);</script>";
@@ -75,6 +78,7 @@ if(strlen($Flag)>0)
 <tr><td width="18%"></td><td width="82%">
 <input type="hidden" name="RowId" value="<?php echo $rowid?>" />
 <input type="hidden" name="Flagrowid" value="<?php echo $Flagrowid?>" />
+<input type="hidden" name="CurPage" value="<?php echo $CurPage?>" />
 <input type="hidden" name="NotNullFeild" value="Flag,TermName">
 <input type="hidden" name="NotNullDesc" value="标识字段,学期名称" >
 <input type="hidden" name="EregPattern" value="d,C">

@@ -89,7 +89,7 @@ if(strlen($rowid)!=32)//说明是参数错误
 		$Flag=$row['Flag'];
 		$TermName=$row['TermName'];
 		$ClassName=$row['ClassName'];
-    	echo '<tr><td align="center">'.$XH.'</td><td><A href="EditScore.php?rowid='.$RowID.'">'.$TermName.'&nbsp;</a></td><td>'.$ClassName.'</td><td align="center"><input type="checkbox" name="Id" value="'.$RowID.'"></td></tr>';
+    	echo '<tr><td align="center">'.$XH.'</td><td><A href="EditScore.php?rowid='.$RowID.'&CurPage='.$CurPage.'">'.$TermName.'&nbsp;</a></td><td>'.$ClassName.'</td><td align="center"><input type="checkbox" name="Id" value="'.$RowID.'"></td></tr>';
 	}
 	mysql_free_result($rs);
 

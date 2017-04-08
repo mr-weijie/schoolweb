@@ -88,7 +88,7 @@ if(strlen($rowid)!=32)//说明是参数错误
 		$Title=$row['Title'];
 		$OutTime=$row['OutTime'];
 		$OutTime= date('Y-m-d',strtotime($OutTime));
-    	echo '<tr><td align="center">'.$XH.'</td><td><A href="EditArticle.php?rowid='.$RowID.'&ArticleRowID='.$rowid.'">'.$Title.'</a></td><td width="65">'.$OutTime.'</td><td align="center"><input type="checkbox" name="Id" value="'.$RowID.'"></td></tr>';
+    	echo '<tr><td align="center">'.$XH.'</td><td><A href="EditArticle.php?rowid='.$RowID.'&ArticleRowID='.$rowid.'&CurPage='.$CurPage.'">'.$Title.'</a></td><td width="65">'.$OutTime.'</td><td align="center"><input type="checkbox" name="Id" value="'.$RowID.'"></td></tr>';
 	}
 	mysql_free_result($rs);
 

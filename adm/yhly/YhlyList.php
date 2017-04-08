@@ -90,7 +90,7 @@ if(strlen($rowid)!=32)//说明是参数错误
 		$Title=$row['Title'];
 		$Auditing=$row['Auditing'];
 		$DateTime=$row['DateTime'];
-    	echo '<tr><td align="center">'.$XH.'</td><td><A href="EditYhly.php?rowid='.$RowID.'&ArticleRowID='.$rowid.'">'.$Title.'</a></td><td width="130">'.$DateTime.'</td><td align="center">';
+    	echo '<tr><td align="center">'.$XH.'</td><td><A href="EditYhly.php?rowid='.$RowID.'&audit='.$audit.'&CurPage='.$CurPage.'">'.$Title.'</a></td><td width="130">'.$DateTime.'</td><td align="center">';
 		if(intval($Auditing)==1) {echo '是';}else{ echo '否';}
 		echo '</td><td align="center"><input type="checkbox" name="Id" value="'.$RowID.'"></td></tr>';
 	}
