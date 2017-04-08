@@ -70,7 +70,7 @@ if(strlen($rowid)!=32)//说明是参数错误
     <tbody>
     <tr><th width="40">序号</th><th>留言标题</th><th width="130">留言时间</th><th nowrap="" width="40">审核</th><th nowrap="" width="40">选择</th></tr>
     <?php
-	$Nums=25;//每页最多显示信息条数
+	$Nums=15;//每页最多显示信息条数
 	$ConStr="";
 	if(strlen($audit)>0) $ConStr=" Where auditing='".$audit."'";
 	$SqlStr="SELECT count(*) As Recs from leaveword ".$ConStr;
@@ -105,11 +105,11 @@ if(strlen($rowid)!=32)//说明是参数错误
 	    echo '<tr class="ManagePage">';
 		if($CurPage==1)
 		{
-			echo '<td colspan="10" height="22" align="right"><A href="?rowid='.$rowid.'&CurPage=2">下一页</A>&nbsp;|&nbsp;';
+			echo '<td colspan="10" height="22" align="right"><A href="?rowid='.$rowid.'&audit='.$audit.'&CurPage=2">下一页</A>&nbsp;|&nbsp;';
 		}else
 		{
-			echo '<td colspan="10" height="22" align="right"><A href="?rowid='.$rowid.'&CurPage='.($CurPage-1).'">上一页</A>&nbsp;|&nbsp;';
-			if($CurPage<$pages) echo '<A href="?rowid='.$rowid.'&CurPage='.($CurPage+1).'">下一页</A>&nbsp;|&nbsp;';
+			echo '<td colspan="10" height="22" align="right"><A href="?rowid='.$rowid.'&audit='.$audit.'&CurPage='.($CurPage-1).'">上一页</A>&nbsp;|&nbsp;';
+			if($CurPage<$pages) echo '<A href="?rowid='.$rowid.'&audit='.$audit.'&CurPage='.($CurPage+1).'">下一页</A>&nbsp;|&nbsp;';
 		}
 		echo '&nbsp;总共'.$pages.'页</td></tr>';
 	}
