@@ -385,7 +385,7 @@ function listPicLink()
 <?php 
 function checkRowID()//查检目标表中的RowId是否有空值，如果有，则自动填入
 {
-		$TableArray=array('tblcontent','WebFunction','tushu','phonebook','qikan','tushupingjia','managefunction','friendlinks','popupwindow','headmasterwords','marqueepicsetup','infosearch_class','infosearch_term','infosearch_stukebiao','infosearch_teakebiao','infosearch_scores');
+		$TableArray=array('tblcontent','WebFunction','tushu','phonebook','qikan','tushupingjia','managefunction','friendlinks','popupwindow','headmasterwords','marqueepicsetup','infosearch_class','infosearch_term','infosearch_stukebiao','infosearch_teakebiao','infosearch_scores','leaveword');
 		foreach($TableArray as $TableName)
 		{
 		  		$SqlStr="SELECT RowID,Id from ".$TableName." Where ISNULL(RowID) OR RowID=''";
@@ -394,7 +394,8 @@ function checkRowID()//查检目标表中的RowId是否有空值，如果有，�
  		  		while($row = mysql_fetch_array($rs)) 
 						{
 							$Id=$row['Id'];
-							$RowID=strtoupper(md5(strval($Id)));//最后转换成大写
+							$flag=time();
+							$RowID=strtoupper(md5(strval($Id).strval($flag)));//最后转换成大写
 							$SqlStr="Update ".$TableName." set RowID='".$RowID."' where Id='".$Id."'";
 							mysql_query($SqlStr);
 						}

@@ -11,6 +11,7 @@ if($Act!='')
 	DeleteRecord("tblcontent",$_POST['DelRowID']);//删除目标记录
 }
 $rowid= trim($_GET['rowid']);
+$audit= trim($_GET['audit']);
 $CurPage= trim($_GET['CurPage']);
 if(strlen($rowid)==0) $Flag= trim($_POST['rowid']);
 if(strlen($CurPage)==0) $CurPage= trim($_POST['CurPage']);
@@ -53,13 +54,13 @@ if(strlen($rowid)!=32)//说明是参数错误
 				    <td height="21" valign="top"></td>
 				  </tr>
 				  <tr valign="top">
-		      <td height="100%" valign="top"><?php IntroduceList()?></td></tr></tbody></table></td></tr></tbody></table>
+		      <td height="100%" valign="top"><?php InfoList()?></td></tr></tbody></table></td></tr></tbody></table>
 </body></html>
 
 
 
-<?php function IntroduceList()
-{ global $ConStr,$CurPage,$rowid,$Flag; 
+<?php function InfoList()
+{ global $ConStr,$CurPage,$rowid,$Flag,$audit; 
 ?>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="ManageList">
   <form name="FrmManage" method="post">
@@ -67,17 +68,18 @@ if(strlen($rowid)!=32)//说明是参数错误
     <td id="ManageContent">
     <table width="100%" border="0" cellspacing="1" cellpadding="0">
     <tbody>
-    <tr><th width="40">序号</th><th>文章标题</th><th width="65">发表日期</th><th nowrap="" width="40">选择</th></tr>
+    <tr><th width="40">序号</th><th>留言标题</th><th width="130">留言时间</th><th nowrap="" width="40">审核</th><th nowrap="" width="40">选择</th></tr>
     <?php
-	$Nums=15;//每页最多显示信息条数
-	$ConStr="Where Flag='".$Flag."'";
-	$SqlStr="SELECT count(*) As Recs from tblcontent ".$ConStr;
+	$Nums=25;//每页最多显示信息条数
+	$ConStr="";
+	if(strlen($audit)>0) $ConStr=" Where auditing='".$audit."'";
+	$SqlStr="SELECT count(*) As Recs from leaveword ".$ConStr;
 	$rs = mysql_query($SqlStr);
 	$row = mysql_fetch_array($rs);
 	$Recs=$row['Recs'];
 	$pages=round($Recs/$Nums+0.499);//总页数
 	if($CurPage>$pages) $CurPage=$pages; 
-	$SqlStr="Select ID,RowID,Title,OutTime from tblcontent ".$ConStr." Order by ID limit ".($CurPage-1)*$Nums.",".$Nums;;
+	$SqlStr="Select RowID,Name,Title,DateTime,Auditing from leaveword ".$ConStr." Order by ID Desc limit ".($CurPage-1)*$Nums.",".$Nums;;
 	$rs = mysql_query($SqlStr);
 	$XH=0;
   	while($row = mysql_fetch_array($rs)) 
@@ -86,9 +88,11 @@ if(strlen($rowid)!=32)//说明是参数错误
 		$ID=$row['ID'];
 		$RowID=$row['RowID'];
 		$Title=$row['Title'];
-		$OutTime=$row['OutTime'];
-		$OutTime= date('Y-m-d',strtotime($OutTime));
-    	echo '<tr><td align="center">'.$XH.'</td><td><A href="EditArticle.php?rowid='.$RowID.'&ArticleRowID='.$rowid.'">'.$Title.'</a></td><td width="65">'.$OutTime.'</td><td align="center"><input type="checkbox" name="Id" value="'.$RowID.'"></td></tr>';
+		$Auditing=$row['Auditing'];
+		$DateTime=$row['DateTime'];
+    	echo '<tr><td align="center">'.$XH.'</td><td><A href="EditYhly.php?rowid='.$RowID.'&ArticleRowID='.$rowid.'">'.$Title.'</a></td><td width="130">'.$DateTime.'</td><td align="center">';
+		if(intval($Auditing)==1) {echo '是';}else{ echo '否';}
+		echo '</td><td align="center"><input type="checkbox" name="Id" value="'.$RowID.'"></td></tr>';
 	}
 	mysql_free_result($rs);
 
