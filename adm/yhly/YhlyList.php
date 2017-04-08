@@ -22,7 +22,7 @@ if(strlen($rowid)!=32)//说明是参数错误
 	exit("<script>alert('参数错误！');history.back(-1);</script>");
 }
 	$SqlStr="Select FunctionName,Flag From managefunction Where RowID='".$rowid."'";
-	//echo $SqlStr;sdfsdfsdfsdfsd
+	//echo $SqlStr;
 	$rs = mysql_query($SqlStr);
 	if($rs=='')
 	{
